@@ -1,21 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>personal blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzer - Full Stack Web Developer Profile</title>
+    <style>
+        /* CSS will go here (See Step 2) */
+		/* --- Base Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Light background */
+    color: #333;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: 40px auto; /* Centers the section and adds vertical space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007bff; /* Primary blue color for headings */
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* --- Profile Header Style --- */
+.profile-header {
+    background-color: #007bff;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 0; /* Connects header to first section */
+}
+
+.profile-header h1 {
+    margin-bottom: 5px;
+    font-size: 2.5em;
+}
+
+.profile-header p {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+/* --- 1. Skills Grid Layout --- */
+.skills-grid {
+    display: grid;
+    /* Create three columns on large screens */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Space between the grid items */
+    padding: 0 20px;
+}
+
+.skill-item {
+    background-color: #e6f2ff; /* Very light blue */
+    color: #0056b3; /* Darker blue text */
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #cce0ff;
+    transition: background-color 0.3s;
+}
+
+.skill-item:hover {
+    background-color: #cce0ff; /* Highlights on hover */
+    cursor: default;
+}
+
+/* --- 2. Services Flexbox Layout --- */
+.services-flex {
+    display: flex;
+    /* Allows items to wrap onto the next line on smaller screens */
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center; /* Center cards horizontally */
+    padding: 0 20px;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: 5px solid #28a745; /* Green accent on top */
+    border-radius: 6px;
+    padding: 20px;
+    /* Ensures each card takes up roughly 30% of the space, allowing 3 per row */
+    flex: 1 1 300px; 
+    max-width: 350px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    margin-top: 0;
+    color: #28a745; /* Matching green for card titles */
+}
+
+/* --- Responsive Adjustments (Optional but Recommended) --- */
+@media (max-width: 768px) {
+    .skills-grid {
+        /* On smaller screens, use two columns */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+</style>
 </head>
 <body>
-	<h1>personal</h1>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    
-    <img src="images/thirdman.jpg" alt="">
+    <header class="profile-header">
+        <h1>Tanzer</h1>
+        <p>Full Stack Web Developer | Frontend Focus</p>
+    </header>
+
+    <section id="skills" class="section-container">
+        <h2>Frontend Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3 (Flexbox & Grid)</div>
+            <div class="skill-item">JavaScript (ES6+)</div>
+            <div class="skill-item">Bootstrap</div>
+            <div class="skill-item">w3.css</div>
+        </div>
+    </section>
+
+    <section id="services" class="section-container">
+        <h2>Services I Offer</h2>
+        <div class="services-flex">
+            
+            <div class="service-card">
+                <h3>Custom Website Development</h3>
+                <p>Building high-performance, accessible, and user-focused web applications from the ground up.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>High-Converting Landing Pages</h3>
+                <p>Designing and developing optimized single-page experiences focused on driving specific business outcomes.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>E-commerce Solutions</h3>
+                <p>Developing robust online stores with secure transactions and scalable product management features.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Get all elements with the class 'skill-item'
+        const skillItems = document.querySelectorAll('.skill-item');
+
+        // Loop through each skill item and attach an event listener
+        skillItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // The toggle method adds the class if it's not present, and removes it if it is.
+                item.classList.toggle('highlighted');
+                
+                // Optional: You could log to the console to see the action happening
+                const skillName = item.textContent;
+                if (item.classList.contains('highlighted')) {
+                    console.log(`Skill emphasized: ${skillName}`);
+                } else {
+                    console.log(`Skill un-emphasized: ${skillName}`);
+                }
+            });
+        });
+
+        // This feature allows users to visually select or "favorite" skills while browsing your profile.
+    </script>
+
+</body>
+</html>
+
 </body>
 </html>
